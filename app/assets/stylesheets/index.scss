@@ -1,0 +1,53 @@
+a {
+    text-decoration: none;
+    color: deeppink;
+}
+.top {
+    background-color: rgb(164, 255, 255);
+    &__img {
+        width: 30%;
+        margin: 0 36%;
+    }
+    &__title {
+        margin: auto;
+        text-align: center;
+    }
+    &__category {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-around;
+        background-color: black;
+    }
+    &__main {
+        &__recently {
+            text-align: center;
+        }
+    }
+    &__priceList {
+        &__title {
+            text-align: center;
+        }
+        &__table {
+            margin: 0 auto;
+            text-align: center;
+            margin-top: -1%;
+            &__row {
+                &__kind {
+                    padding: 0 5%;
+                }
+            }
+        }
+    }
+    &__info {
+        text-align: center;
+        &__blog {
+
+        }
+        &__phone {
+
+        }
+        &__mail {
+            
+        }
+    }
+}
