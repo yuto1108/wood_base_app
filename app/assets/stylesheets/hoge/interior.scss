@@ -1,0 +1,50 @@
+@import "mixins";
+
+.interior {
+    background: url(common/beige-grain.jpg) no-repeat 0 0 / cover;
+    &__explanation {
+        text-align: center;
+        &__title {
+        }
+        &__text {
+        }
+    }
+    &__title {
+        text-align: center;
+    }
+    &__Process {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        &__content {
+            margin: 0 2px;
+            text-align: center;
+            width: calc(33% - 2px);
+            &__img {
+                width: 80%;
+            }
+        }
+    }
+    &__example {
+        &__content {
+            text-align: center;
+            &__imgs {
+                display: flex;
+                justify-content: center;
+                &__before,
+                &__after {
+                    width: 30%;
+                    & > img {
+                        width: 100%;
+                    }
+                }
+                &__arrow {
+                    width: 10%;
+                }
+            }
+            &__text {
+                font-size: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,167 @@
+<div class="top">
+    <%=render partial: "sheared/header", locals:{selectedCategory: "topPage"}%>
+    <div class="top__main">
+        <p class="top__main__text">
+            説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文<br />
+            説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文<br />
+            説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文
+        </p>
+        <div class="top__main__recently">
+            <h2>当店で行えるリペア</h2>
+            <div class="top__main__recently__first">
+                <div class="top__main__recently__content">
+                    <p class="top__main__recently__content__title">
+                        インテリアリペア
+                    </p>
+                    <a href="/interior">
+                        <div class="top__main__recently__content__container">
+                            <div
+                                class="top__main__recently__content__container__before"
+                            >
+                                <div
+                                    class="top__main__recently__content__container__before__text"
+                                >
+                                    before
+                                </div>
+                                <%= image_tag "top/interior_top_before.jpg",
+                                class:
+                                "top__main__recently__content__container__before__image"%>
+                            </div>
+                            <div
+                                class="top__main__recently__content__container__after"
+                            >
+                                <div
+                                    class="top__main__recently__content__container__after__text"
+                                >
+                                    after
+                                </div>
+                                <%= image_tag "top/interior_top_after.jpg",
+                                class:
+                                "top__main__recently__content__container__after__image"%>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="top__main__recently__content">
+                    <p class="top__main__recently__content__title">
+                        ヘッドライトリペア
+                    </p>
+                    <div class="top__main__recently__content__container">
+                        <a href="/headlight">
+                            <div
+                                class="top__main__recently__content__container__before"
+                            >
+                                <div
+                                    class="top__main__recently__content__container__before__text"
+                                >
+                                    before
+                                </div>
+                                <%= image_tag "top/headlight_top_before.jpg",
+                                class:
+                                "top__main__recently__content__container__before__image"%>
+                            </div>
+                            <div
+                                class="top__main__recently__content__container__after"
+                            >
+                                <div
+                                    class="top__main__recently__content__container__after__text"
+                                >
+                                    after
+                                </div>
+                                <%= image_tag "top/headlight_top_after.jpg",
+                                class:
+                                "top__main__recently__content__container__after__image"%>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="top__main__recently__second">
+                <div class="top__main__recently__content">
+                    <p class="top__main__recently__content__title">
+                        ホイールリペア
+                    </p>
+                    <a href="/wheel">
+                        <div class="top__main__recently__content__container">
+                            <div
+                                class="top__main__recently__content__container__before"
+                            >
+                                <div
+                                    class="top__main__recently__content__container__before__text"
+                                >
+                                    before
+                                </div>
+                                <%= image_tag "top/wheel_top_before.jpg", class:
+                                "top__main__recently__content__container__before__image"%>
+                            </div>
+                            <div
+                                class="top__main__recently__content__container__after"
+                            >
+                                <div
+                                    class="top__main__recently__content__container__after__text"
+                                >
+                                    after
+                                </div>
+                                <%= image_tag "top/wheel_top_after.jpg", class:
+                                "top__main__recently__content__container__after__image"%>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="top__main__recently__content">
+                    <p class="top__main__recently__content__title">
+                        室内クリーニング
+                    </p>
+                    <a href="/indoor_cleaning">
+                        <div class="top__main__recently__content__container">
+                            <div
+                                class="top__main__recently__content__container__before"
+                            >
+                                <div
+                                    class="top__main__recently__content__container__before__text"
+                                >
+                                    before
+                                </div>
+                                <%= image_tag "top/indoor_cleaning_top_before.jpg", class:
+                                "top__main__recently__content__container__before__image"%>
+                            </div>
+                            <div
+                                class="top__main__recently__content__container__after"
+                            >
+                                <div
+                                    class="top__main__recently__content__container__after__text"
+                                >
+                                    after
+                                </div>
+                                <%= image_tag "top/indoor_cleaning_top_after.jpg", class:
+                                "top__main__recently__content__container__after__image"%>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="top__achievement">
+        <h2 >最新情報</h2>
+        <div class="top__achievement__contents">
+            <% @topData.each do |data| %>
+                <div class="top__achievement__contents__content">
+                    <div class="top__achievement__contents__content__explanation">
+                        <h4 class="top__achievement__contents__content__explanation__title"><%= data.title %></h4>
+                        <p class="top__achievement__contents__content__explanation__text"><%= data.description %></p>
+                    </div>
+                    <% if data.before_image.attached? %>
+                        <%= image_tag url_for(data.before_image), class:"top__achievement__contents__content__img"%>
+                    <% end %>
+                    <%= image_tag "common/red-arrow.png", class: "interior__example__content__imgs__arrow" %>
+                    <% if data.after_image.attached? %>
+                        <%= image_tag url_for(data.after_image), class:"top__achievement__contents__content__img"%>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <%= render partial: "sheared/price-list" %>
+    <%= render partial: "sheared/footer" %>
+</div>

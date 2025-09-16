@@ -1,10 +1,44 @@
 Rails.application.routes.draw do
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-        get "/"                => "hoge#index"
-        get "/interior"        => "hoge#interior"
-        get "/headlight"       => "hoge#headlight"
-        get "/wheel"           => "hoge#wheel"
-        get "/indoor_cleaning" => "hoge#indoor_cleaning"
-    # Defines the root path route ("/")
-    # root "articles#index"
+        root                                      'hoge#top'
+        get '/interior'                        => 'hoge#interior'
+        get '/headlight'                       => 'hoge#headlight'
+        get '/wheel'                           => 'hoge#wheel'
+        get '/indoor_cleaning'                 => 'hoge#indoor_cleaning'
+        scope '/administrator' do
+            get '/', to: 'administrator#index', as: 'administrator_home'
+            get 'top', to: 'administrator_top#index', as: 'administrator_top'
+            get 'top/new', to: 'administrator_top#new', as: 'new_administrator_top'
+            post 'top/create', to: 'administrator_top#create' ,as:'create_administrator_top'
+            get 'top/:id/edit', to: 'administrator_top#edit', as: 'edit_administrator_top'
+            patch 'top/:id/update', to: 'administrator_top#update' ,as:'update_administrator_top'
+            delete 'top/:id', to: 'administrator_top#destroy', as: 'destroy_administrator_top'
+            get 'interior',to: 'administrator_interior#index', as: 'administrator_interior'
+            get 'interior/new',to: 'administrator_interior#new', as: 'new_administrator_interior'
+            post 'interior/new',to: 'administrator_interior#create', as: 'create_administrator_interior'
+            get 'interior/:id/edit',to: 'administrator_interior#edit', as: 'edit_administrator_interior'
+            patch 'interior/:id/update',to: 'administrator_interior#update', as: 'update_administrator_interior'
+            delete 'interior/:id',to: 'administrator_interior#destroy', as: 'destroy_administrator_interior'
+            get 'indoor_cleaning',to: 'administrator_indoor_cleaning#index', as: 'administrator_indoor_cleaning'
+            get 'indoor_cleaning/new',to: 'administrator_indoor_cleaning#new', as: 'new_administrator_indoor_cleaning'
+            post 'indoor_cleaning/new',to: 'administrator_indoor_cleaning#create', as: 'create_administrator_indoor_cleaning'
+            get 'indoor_cleaning/:id/edit',to: 'administrator_indoor_cleaning#edit', as: 'edit_administrator_indoor_cleaning'
+            patch 'indoor_cleaning/:id/update',to: 'administrator_indoor_cleaning#update', as: 'update_administrator_indoor_cleaning'
+            delete 'indoor_cleaning/:id',to: 'administrator_indoor_cleaning#destroy', as: 'destroy_administrator_indoor_cleaning'
+            get 'headlight',to: 'administrator_headlight#index', as: 'administrator_headlight'
+            get 'headlight/new',to: 'administrator_headlight#new', as: 'new_administrator_headlight'
+            post 'headlight/new',to: 'administrator_headlight#create', as: 'create_administrator_headlight'
+            get 'headlight/:id/edit',to: 'administrator_headlight#edit', as: 'edit_administrator_headlight'
+            patch 'headlight/:id/update',to: 'administrator_headlight#update', as: 'update_administrator_headlight'
+            delete 'headlight/:id',to: 'administrator_headlight#destroy', as: 'destroy_administrator_headlight'
+            get 'wheel',to: 'administrator_wheel#index', as: 'administrator_wheel'
+            get 'wheel/new',to: 'administrator_wheel#new', as: 'new_administrator_wheel'
+            post 'wheel/new',to: 'administrator_wheel#create', as: 'create_administrator_wheel'
+            get 'wheel/:id/edit',to: 'administrator_wheel#edit', as: 'edit_administrator_wheel'
+            patch 'wheel/:id/update',to: 'administrator_wheel#update', as: 'update_administrator_wheel'
+            delete 'wheel/:id',to: 'administrator_wheel#destroy', as: 'destroy_administrator_wheel'
+        end
+        resources :administrators
+    # Defines the root path route ('/')
+    # root 'articles#index'
 end

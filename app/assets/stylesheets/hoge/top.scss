@@ -1,0 +1,176 @@
+@import "mixins";
+
+.top {
+    background: url(common/beige-grain.jpg) no-repeat 0 0 / cover;
+    &__main {
+        &__text {
+            text-align: center;
+        }
+        &__recently {
+            text-align: center;
+
+            &__first {
+                @include media("tbAndPc") {
+                    display: flex;
+                    justify-content: space-around;
+                }
+            }
+            &__second {
+                @include media("tbAndPc") {
+                    display: flex;
+                    justify-content: space-around;
+                }
+            }
+            &__content {
+                text-align: center;
+                &__title {
+                    font-size: 170%;
+                    margin-bottom: 2%;
+                }
+                &__container {
+                    position: relative;
+                    &__before {
+                        &__text {
+                            font-size: 160%;
+                            color: blue;
+                        }
+                        &__image {
+                            width: 53%;
+                            border-radius: 50%;
+                        }
+
+                        @include media("spAndTb") {
+                            animation: fadeInOut 10s infinite;
+                        }
+                    }
+                    &__after {
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        opacity: 0;
+                        width: 100%;
+                        &__text {
+                            font-size: 160%;
+                            color: red;
+                        }
+                        &__image {
+                            width: 53%;
+                            border-radius: 50%;
+                        }
+                        @include media("spAndTb") {
+                            animation: fadeInOut 10s infinite 5s;
+                        }
+                    }
+                    @include media("pc") {
+                        :hover > &__before {
+                            opacity: 0;
+                        }
+                        :hover > &__after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__achievement {
+        text-align: center;
+        &__contents {
+            overflow-y: scroll;
+            margin: 0 3%;
+            height: 560px;
+            &__content {
+                margin: 2%;
+                display: flex;
+                max-height: 300px;
+                align-items: center;
+                &__explanation {
+                    margin: 0 5%;
+                    overflow: hidden;
+                    display: -webkit-box;
+                    text-overflow: ellipsis;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 9;
+                    /* ブラウザがサポートしていない場合のフェールセーフ */
+                    max-height: 300px;
+                    max-width: 470px;
+                }
+                &__img {
+                    max-width: 25%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    &__priceList {
+        &__title {
+            text-align: center;
+            font-size: 170%;
+        }
+        &__table {
+            margin: 0 auto;
+            text-align: center;
+            margin-top: -1%;
+            &__row {
+                &__kind {
+                    @include media("tbAndPc") {
+                        padding: 0 5%;
+                    }
+                    @include media("sp") {
+                        font-size: 75%;
+                    }
+                    br {
+                        display: none;
+                        @include media("spAndTb") {
+                            display: block;
+                        }
+                    }
+                }
+                &__price {
+                    @include media("sp") {
+                        font-size: 80%;
+                    }
+                }
+            }
+        }
+    }
+    &__info {
+        text-align: center;
+        &__mail {
+            margin: 3%;
+        }
+        &__phone {
+            margin: 3%;
+        }
+        &__under {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 5%;
+            &__blog {
+                margin-right: 5%;
+            }
+        }
+    }
+}
+@keyframes fadeInOut {
+    0% {
+        //0s
+        opacity: 0;
+    }
+    1% {
+        //0.5s
+        opacity: 1;
+    }
+    50% {
+        //5s
+        opacity: 1;
+    }
+    51% {
+        // 5.5s
+        opacity: 0;
+    }
+    100% {
+        //10s
+        opacity: 0;
+    }
+}

@@ -1,0 +1,49 @@
+.link {
+    color: #000000;
+    background-color: #e4ff4a;
+    border-radius: 100vh;
+    padding: 10px;
+}
+
+.new-registration {
+    margin: 20px 0;
+}
+
+.th-title {
+    width: 15%;
+    padding: 10px 0;
+}
+.th-description {
+    width: 15%;
+    padding: 10px 0;
+}
+.th-image {
+    width: 30%;
+    padding: 10px 0;
+}
+.th-operation {
+    width: 10%;
+    padding: 10px 0;
+}
+
+.td-title {
+    text-align: center;
+    padding: 5px 15px;
+}
+.td-description {
+    text-align: center;
+    padding: 5px 15px;
+}
+.td-image {
+    text-align: center;
+    img {
+        max-width: 400px;
+        margin: 20px;
+    }
+}
+.td-operation {
+    text-align: center;
+    :last-child {
+        margin-left: 25px;
+    }
+}

@@ -1,0 +1,26 @@
+<div>
+    <%= form_with(model: @administrator_headlight, local: true, multipart: true, url: create_administrator_headlight_path) do |form| %>
+        <div class="new-title">
+            <%= form.label :title, "タイトル：" %>
+            <%= form.text_field :title %>
+        </div>
+        <div class="new-image">
+            <%= form.label :before_image, "作業前画像：" %>
+            <%= form.file_field :before_image, accept: "image/*", id: "before_image_input" %>
+            <%= image_tag "", id: "before_image_preview", class: "new-image-preview" %>
+        </div>
+        <div class="new-image">
+            <%= form.label :after_image, "作業後画像：" %>
+            <%= form.file_field :after_image, accept: "image/*", id: "after_image_input" %>
+            <%= image_tag "", id: "after_image_preview", class: "new-image-preview" %>
+        </div>
+        <div class="new-description">
+            <%= form.label :description, "説明文：" %>
+            <%= form.text_area  :description, rows: 10, style: "width: 500px;" %>
+        </div>
+        <div class="new-submit">
+            <%= form.submit "登録" %>
+        </div>
+    <% end %>
+    <div class="administrator-link"><%= link_to "TOPへ", administrator_headlight_path %></div>
+</div>

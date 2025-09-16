@@ -1,1 +1,59 @@
-<h1>室内クリーニング</h1>
+<div class="interior">
+    <%=render partial: "sheared/header", locals: { selectedCategory: "indoorCleaningPage" } %>
+    <div class="interior__explanation">
+        <h1 class="interior__explanation__title">室内クリーニング</h1>
+        <p class="interior__explanation__text">説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文</p>
+    </div>
+    <h2 class="interior__title">作業工程</h2>
+    <div class="interior__Process">
+        <div class="interior__Process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
+            <p class="interior__Process__content__text">
+                テキストテキストテキスト
+            </p>
+        </div>
+        <div class="interior__Process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
+            <p class="interior__Process__content__text">
+                テキストテキストテキスト
+            </p>
+        </div>
+        <div class="interior__Process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
+            <p class="interior__Process__content__text">
+                テキストテキストテキスト
+            </p>
+        </div>
+        <div class="interior__Process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
+            <p class="interior__Process__content__text">
+                テキストテキストテキスト
+            </p>
+        </div>
+        <div class="interior__Process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
+            <p class="interior__Process__content__text">
+                テキストテキストテキスト
+            </p>
+        </div>
+    </div>
+    <h2 class="interior__title">施工実績</h2>
+    <div class="interior__example">
+        <div class="interior__example__content">
+            <% @indoorCleaningData.each do |data| %>
+                <div class="interior__example__content__imgs">
+                    <% if data.before_image.attached? %>
+                        <%= image_tag url_for(data.before_image), class: "interior__example__content__imgs__before" %>
+                    <% end %>
+                    <%= image_tag "common/red-arrow.png", class: "interior__example__content__imgs__arrow" %>
+                    <% if data.after_image.attached? %>
+                        <%= image_tag url_for(data.after_image), class: "interior__example__content__imgs__after" %>
+                    <% end %>
+                </div>
+                <p class="interior__example__content__text"><%= data.description %></p>
+            <% end %>
+        </div>
+    </div>
+    <%= render partial: "sheared/price-list" %>
+    <%=render partial: "sheared/footer"%>
+</div>

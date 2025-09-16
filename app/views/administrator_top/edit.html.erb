@@ -1,0 +1,34 @@
+<div>
+    <%= form_with(model: @data, local: true, multipart: true, url: update_administrator_top_path) do |form| %>
+        <div class="new-title">
+            <%= form.label :title, "タイトルの変更：" %>
+            <%= form.text_field :title %>
+        </div>
+        <div class="current-image">
+            <p>現在の作業前画像：</p>
+            <p><%= image_tag url_for(@data.before_image), width: 150 %></p>
+        </div>
+        <div class="new-image">
+            <%= form.label :before_image, "作業前画像を変更：" %>
+            <%= form.file_field :before_image, accept: "image/*", id: "before_image_input" %>
+            <%= image_tag "", id: "before_image_preview", class: "edit-image-preview" %>
+        </div>
+        <div class="current-image">
+            <p>現在の作業後画像：</p>
+            <p><%= image_tag url_for(@data.after_image), width: 150 %></p>
+        </div>
+        <div class="new-image">
+            <%= form.label :after_image, "作業後画像を変更：" %>
+            <%= form.file_field :after_image, accept: "image/*", id: "after_image_input" %>
+            <%= image_tag "", id: "after_image_preview", class: "edit-image-preview" %>
+        </div>
+        <div class="new-description">
+            <%= form.label :description, "説明文の変更：" %>
+            <%= form.text_area :description, rows: 10, style: "width: 500px;" %>
+        </div>
+        <div class="new-submit">
+            <%= form.submit "更新" %>
+        </div>
+    <% end %>
+    <div class="administrator-link"><%= link_to "TOPへ", administrator_top_path %></div>
+</div>

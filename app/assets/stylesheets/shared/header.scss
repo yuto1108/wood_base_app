@@ -1,0 +1,47 @@
+@import "mixins";
+
+.title {
+    text-align: center;
+    &__img {
+        width: 27%;
+        margin-bottom: -3%;
+    }
+}
+.category {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    background: url(common/brown-grain.jpg) no-repeat 0 0 / cover;
+    &__text {
+        font-size: 120%;
+        margin: 2% 0;
+        @include media("sp") {
+            font-size: 100%;
+        }
+        br {
+            display: none;
+        }
+        @include media("spAndTb") {
+            .sp {
+                display: block;
+            }
+        }
+        a {
+            color: white;
+        }
+    }
+}
+
+.redLine {
+    & > a {
+        color: red;
+        font-weight: bold;
+        border-bottom: solid red 5px;
+        padding-bottom: 5px;
+    }
+}

@@ -1,0 +1,39 @@
+<h1>インテリアリペア画面用データ入力画面</h1>
+<div class="administrator">
+    <a class="link" href="/administrator/top">TOP</a>
+    <a class="link" href="/administrator/headlight">headlight</a>
+    <a class="link" href="/administrator/wheel">wheel</a>
+    <a class="link" href="/administrator/indoor_cleaning">indoor_cleaning</a>
+</div>
+<div class="new-registration">
+    <button>
+        <a href="/administrator/interior/new">新規登録</a>
+    </button>
+</div>
+<div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th class="th-title">タイトル</th>
+                <th class="th-description">説明</th>
+                <th class="th-image">作業前画像</th>
+                <th class="th-image">作業後画像</th>
+                <th class="th-operation">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @article.each do |article| %>
+                <tr>
+                    <td class="td-title"><%= article.title %></td>
+                    <td class="td-description"><%= article.description %></td>
+                    <td class="td-image"><%= image_tag url_for(article.before_image) if article.before_image.attached? %></td>
+                    <td class="td-image"><%= image_tag url_for(article.after_image) if article.after_image.attached? %></td>
+                    <td class="td-operation">
+                        <%= link_to "編集", edit_administrator_interior_path(article.id), class: "btn btn-primary" %>
+                        <%= link_to '削除', destroy_administrator_interior_path(article.id), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

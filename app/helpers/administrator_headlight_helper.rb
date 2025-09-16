@@ -1,0 +1,2 @@
+module AdministratorHeadlightHelper
+end

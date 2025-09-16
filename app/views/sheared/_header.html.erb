@@ -1,0 +1,21 @@
+<div class="title">
+    <%= image_tag 'common/title_img.jpg', class: "title__img" %>
+    <h1 class="title__text">リペア工房 WoodBase</h1>
+</div>
+<div class="category">
+    <div class="category__text <%= selectedCategory === 'topPage' ? 'redLine' : '' %>">
+        <a href="/">トップ</a>
+    </div>
+    <div class="category__text <%= selectedCategory === 'interiorPage' ? 'redLine' : '' %>">
+        <a href="/interior">インテリア<br class="sp">リペア</a>
+    </div>
+    <div class="category__text <%= selectedCategory === 'headlightPage' ? 'redLine' : '' %>">
+        <a href="/headlight">ヘッドライト<br class="sp">リペア</a>
+    </div>
+    <div class="category__text <%= selectedCategory === 'wheelpage' ? 'redLine' : '' %>">
+        <a href="/wheel">ホイール<br class="sp">リペア</a>
+    </div>
+    <div class="category__text <%= selectedCategory === 'indoorCleaningPage' ? 'redLine' : '' %>">
+        <a href="/indoor_cleaning">室内<br class="sp">クリーニング</a>
+    </div>
+</div>

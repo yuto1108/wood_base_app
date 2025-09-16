@@ -1,0 +1,19 @@
+@import "mixins";
+
+.footer {
+    text-align: center;
+    &__mail {
+        margin: 3%;
+    }
+    &__phone {
+        margin: 3%;
+    }
+    &__under {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 5%;
+        &__blog {
+            margin-right: 5%;
+        }
+    }
+}
