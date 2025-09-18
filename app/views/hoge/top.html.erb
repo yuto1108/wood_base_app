@@ -11,7 +11,7 @@
             <div class="top__main__recently__first">
                 <div class="top__main__recently__content">
                     <p class="top__main__recently__content__title">
-                        インテリアリペア
+                        インテリア
                     </p>
                     <a href="/interior">
                         <div class="top__main__recently__content__container">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="top__main__recently__content">
                     <p class="top__main__recently__content__title">
-                        ヘッドライトリペア
+                        ヘッドライト
                     </p>
                     <div class="top__main__recently__content__container">
                         <a href="/headlight">
@@ -75,11 +75,9 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="top__main__recently__second">
                 <div class="top__main__recently__content">
                     <p class="top__main__recently__content__title">
-                        ホイールリペア
+                        ホイール
                     </p>
                     <a href="/wheel">
                         <div class="top__main__recently__content__container">
@@ -148,16 +146,22 @@
             <% @topData.each do |data| %>
                 <div class="top__achievement__contents__content">
                     <div class="top__achievement__contents__content__explanation">
-                        <h4 class="top__achievement__contents__content__explanation__title"><%= data.title %></h4>
+                        <h3 class="top__achievement__contents__content__explanation__title"><%= data.title %></h3>
                         <p class="top__achievement__contents__content__explanation__text"><%= data.description %></p>
                     </div>
-                    <% if data.before_image.attached? %>
-                        <%= image_tag url_for(data.before_image), class:"top__achievement__contents__content__img"%>
-                    <% end %>
-                    <%= image_tag "common/red-arrow.png", class: "interior__example__content__imgs__arrow" %>
-                    <% if data.after_image.attached? %>
-                        <%= image_tag url_for(data.after_image), class:"top__achievement__contents__content__img"%>
-                    <% end %>
+                    <div class="top__achievement__contents__content__images">
+                        <% if data.before_image.attached? %>
+                            <div class="top__achievement__contents__content__images__content">
+                                <%= image_tag url_for(data.before_image.representation(resize_to_fit: [460, 250])), class:"top__achievement__contents__content__images__content__img"%>
+                            </div>
+                        <% end %>
+                        <%= image_tag "common/red-arrow.png", class: "top__achievement__contents__content__images__arrow" %>
+                        <% if data.after_image.attached? %>
+                            <div class="top__achievement__contents__content__images__content">
+                                <%= image_tag url_for(data.after_image.representation(resize_to_fit: [460, 250])), class:"top__achievement__contents__content__images__content__img"%>
+                            </div>
+                        <% end %>
+                    </div>
                 </div>
             <% end %>
         </div>

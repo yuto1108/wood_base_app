@@ -5,34 +5,34 @@
         <p class="interior__explanation__text">説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文</p>
     </div>
     <h2 class="interior__title">作業工程</h2>
-    <div class="interior__Process">
-        <div class="interior__Process__content">
-            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
-            <p class="interior__Process__content__text">
+    <div class="interior__process">
+        <div class="interior__process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__process__content__img"%>
+            <p class="interior__process__content__text">
                 テキストテキストテキスト
             </p>
         </div>
-        <div class="interior__Process__content">
-            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
-            <p class="interior__Process__content__text">
+        <div class="interior__process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__process__content__img"%>
+            <p class="interior__process__content__text">
                 テキストテキストテキスト
             </p>
         </div>
-        <div class="interior__Process__content">
-            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
-            <p class="interior__Process__content__text">
+        <div class="interior__process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__process__content__img"%>
+            <p class="interior__process__content__text">
                 テキストテキストテキスト
             </p>
         </div>
-        <div class="interior__Process__content">
-            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
-            <p class="interior__Process__content__text">
+        <div class="interior__process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__process__content__img"%>
+            <p class="interior__process__content__text">
                 テキストテキストテキスト
             </p>
         </div>
-        <div class="interior__Process__content">
-            <%= image_tag "top/wheel_top_before.jpg", class: "interior__Process__content__img"%>
-            <p class="interior__Process__content__text">
+        <div class="interior__process__content">
+            <%= image_tag "top/wheel_top_before.jpg", class: "interior__process__content__img"%>
+            <p class="interior__process__content__text">
                 テキストテキストテキスト
             </p>
         </div>
@@ -40,17 +40,24 @@
     <h2 class="interior__title">施工実績</h2>
     <div class="interior__example">
         <% @interiorData.each do |data| %>
-            <div class="interior__example__content">
-                <div class="interior__example__content__imgs">
+            <div class="interior__example__contents">
+                <div class="interior__example__contents__content">
+                    <h3 class="interior__example__contents__content__title"><%= data.title %></h3>
+                    <p class="interior__example__contents__content__text"><%= data.description %></p>
+                </div>
+                <div class="interior__example__contents__imgs">
                     <% if data.before_image.attached? %>
-                        <%= image_tag url_for(data.before_image), class: "interior__example__content__imgs__before" %>
+                        <div class="interior__example__contents__imgs__img-content">
+                            <%= image_tag url_for(data.before_image.representation(resize_to_fit: [460, 250])), class: "interior__example__contents__imgs__img-content__before" %>
+                        </div>
                     <% end %>
-                    <%= image_tag "common/red-arrow.png", class: "interior__example__content__imgs__arrow" %>
+                    <%= image_tag "common/red-arrow.png", class: "interior__example__contents__imgs__img-content__arrow" %>
                     <% if data.after_image.attached? %>
-                        <%= image_tag url_for(data.after_image), class: "interior__example__content__imgs__after" %>
+                        <div class="interior__example__contents__imgs__img-content">
+                            <%= image_tag url_for(data.after_image.representation(resize_to_fit: [460, 250])), class: "interior__example__contents__imgs__img-content__after" %>
+                        </div>
                     <% end %>
                 </div>
-                <p class="interior__example__content__text"><%= data.description %></p>
             </div>
         <% end %>
     </div>

@@ -12,7 +12,7 @@
     &__title {
         text-align: center;
     }
-    &__Process {
+    &__process {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -26,24 +26,61 @@
         }
     }
     &__example {
-        &__content {
+        &__contents {
             text-align: center;
+            margin: 1%;
+            border: solid #000000 3px;
+            padding: 1%;
+            border-radius: 10px;
+            @include media("pc") {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            &__content {
+                margin: 0 5%;
+                overflow: hidden;
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 9;
+                /* ブラウザがサポートしていない場合のフェールセーフ */
+                max-height: 300px;
+                max-width: 470px;
+                &__title {
+                    @include media("sp") {
+                        font-size: 80%;
+                    }
+                }
+                &__text {
+                    font-size: 100%;
+                    @include media("sp") {
+                        font-size: 80%;
+                    }
+                }
+            }
             &__imgs {
                 display: flex;
                 justify-content: center;
-                &__before,
-                &__after {
-                    width: 30%;
-                    & > img {
-                        width: 100%;
+                min-width: 25%;
+                @include media("sp") {
+                    align-items: center;
+                }
+                &__img-content {
+                    min-width: 25%;
+                    text-align: center;
+                    @include media("sp") {
+                        max-width: 30%;
+                    }
+                    &__before,
+                    &__after {
+                        max-width: 100%;
+                        height: auto;
+                    }
+                    &__arrow {
+                        width: 10%;
                     }
                 }
-                &__arrow {
-                    width: 10%;
-                }
-            }
-            &__text {
-                font-size: 100%;
             }
         }
     }

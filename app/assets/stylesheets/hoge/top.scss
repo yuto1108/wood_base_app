@@ -8,7 +8,7 @@
         }
         &__recently {
             text-align: center;
-
+            margin-top: 5%;
             &__first {
                 @include media("tbAndPc") {
                     display: flex;
@@ -24,23 +24,24 @@
             &__content {
                 text-align: center;
                 &__title {
-                    font-size: 170%;
+                    font-size: 120%;
                     margin-bottom: 2%;
+                    font-weight: bold;
                 }
                 &__container {
                     position: relative;
                     &__before {
                         &__text {
-                            font-size: 160%;
+                            font-size: 150%;
                             color: blue;
                         }
                         &__image {
-                            width: 53%;
+                            width: 65%;
                             border-radius: 50%;
                         }
 
                         @include media("spAndTb") {
-                            animation: fadeInOut 10s infinite;
+                            animation: fadeInOut 5s infinite;
                         }
                     }
                     &__after {
@@ -50,15 +51,15 @@
                         opacity: 0;
                         width: 100%;
                         &__text {
-                            font-size: 160%;
+                            font-size: 150%;
                             color: red;
                         }
                         &__image {
-                            width: 53%;
+                            width: 65%;
                             border-radius: 50%;
                         }
                         @include media("spAndTb") {
-                            animation: fadeInOut 10s infinite 5s;
+                            animation: fadeInOut 5s infinite 2.5s;
                         }
                     }
                     @include media("pc") {
@@ -75,15 +76,17 @@
     }
     &__achievement {
         text-align: center;
+        margin-top: 10%;
         &__contents {
-            overflow-y: scroll;
-            margin: 0 3%;
-            height: 560px;
             &__content {
                 margin: 2%;
                 display: flex;
                 max-height: 300px;
                 align-items: center;
+                justify-content: space-between;
+                border: solid #000000 3px;
+                padding: 1%;
+                border-radius: 10px;
                 &__explanation {
                     margin: 0 5%;
                     overflow: hidden;
@@ -94,15 +97,37 @@
                     /* ブラウザがサポートしていない場合のフェールセーフ */
                     max-height: 300px;
                     max-width: 470px;
+                    &__title {
+                        @include media("sp") {
+                            font-size: 80%;
+                        }
+                    }
+                    &__text {
+                        @include media("sp") {
+                            font-size: 80%;
+                        }
+                    }
                 }
-                &__img {
-                    max-width: 25%;
-                    height: auto;
+                &__images {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &__content {
+                        min-width: 30%;
+                        text-align: center;
+                        &__img {
+                            width: 100%;
+                        }
+                    }
+                    &__arrow {
+                        width: 15%;
+                    }
                 }
             }
         }
     }
     &__priceList {
+        margin-top: 10%;
         &__title {
             text-align: center;
             font-size: 170%;
@@ -110,7 +135,6 @@
         &__table {
             margin: 0 auto;
             text-align: center;
-            margin-top: -1%;
             &__row {
                 &__kind {
                     @include media("tbAndPc") {
