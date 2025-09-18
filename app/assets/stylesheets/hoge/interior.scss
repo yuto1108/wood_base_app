@@ -46,7 +46,7 @@
                 -webkit-line-clamp: 9;
                 /* ブラウザがサポートしていない場合のフェールセーフ */
                 max-height: 300px;
-                max-width: 470px;
+                width: 50%;
                 &__title {
                     @include media("sp") {
                         font-size: 80%;
@@ -61,8 +61,8 @@
             }
             &__imgs {
                 display: flex;
-                justify-content: center;
-                min-width: 25%;
+                justify-content: end;
+                width: 50%;
                 @include media("sp") {
                     align-items: center;
                 }
